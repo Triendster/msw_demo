@@ -1,188 +1,190 @@
 <div class="content">
   <!--Clear-Knöpfchen-->
-  <button mat-raised-button color="warn" (click)="handleClearCurrentData()">
+  <button class="delete-btn" mat-raised-button color="warn" (click)="handleClearCurrentData()">
     Geladene Daten leeren
   </button>
-  <!--User-Bereich-->
-  <mat-card>
-    <button mat-raised-button (click)="handleClick('users')">
-      User-Objekte laden
-    </button>
-  </mat-card>
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let user of users">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            Name: {{ user.name }}
-          </mat-card-title>
-          <mat-card-subtitle>
-            ID: {{ user.id }}
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            Email: {{ user.email }}
-          </p>
-          <p>
-            Straße: {{ user.address.street }}
-          </p>
-          <p>
-            Wohnungsnummer: {{ user.address.suite }}
-          </p>
-          <p>
-            Stadt: {{ user.address.city }}
-          </p>
-          <p>
-            PLZ: {{ user.address.zipcode }}
-          </p>
-          <p>
-            Geo-Daten: {{ user.address.geo.lat }} {{ user.address.geo.lng }}
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <!--Posts-Bereich-->
-  <mat-card>
-    <button mat-raised-button (click)="handleClick('posts')">
-      Post-Objekte laden
-    </button>
-  </mat-card>
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let post of posts">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            User-Id: {{ post.userId }}
-          </mat-card-title>
-          <mat-card-subtitle>
-            ID: {{ post.id }}
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            Titel: {{ post.title }}
-          </p>
-          <p>
-            Inhalt: {{ post.body }}
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <!--Albums-Bereich-->
-  <mat-card>
-    <button mat-raised-button (click)="handleClick('albums')">
-      Album-Objekte laden
-    </button>
-  </mat-card>
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let album of albums">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            User-Id: {{ album.userId }}
-          </mat-card-title>
-          <mat-card-subtitle>
-            ID: {{ album.id }}
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            Titel: {{ album.title }}
-          </p>
+  <div class="list-container">
+    <!--User-Bereich-->
+    <mat-card>
+      <button mat-raised-button (click)="handleClick('users')">
+        User-Objekte laden
+      </button>
+    </mat-card>
+    <mat-grid-list *ngIf="users.length > 0" cols="2" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let user of users">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              Name: {{ user.name }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              ID: {{ user.id }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              Email: {{ user.email }}
+            </p>
+            <p>
+              Straße: {{ user.address.street }}
+            </p>
+            <p>
+              Wohnungsnummer: {{ user.address.suite }}
+            </p>
+            <p>
+              Stadt: {{ user.address.city }}
+            </p>
+            <p>
+              PLZ: {{ user.address.zipcode }}
+            </p>
+            <p>
+              Geo-Daten: {{ user.address.geo.lat }} {{ user.address.geo.lng }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!--Posts-Bereich-->
+    <mat-card>
+      <button mat-raised-button (click)="handleClick('posts')">
+        Post-Objekte laden
+      </button>
+    </mat-card>
+    <mat-grid-list *ngIf="posts.length > 0" cols="2" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let post of posts">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              User-Id: {{ post.userId }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              ID: {{ post.id }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              Titel: {{ post.title }}
+            </p>
+            <p>
+              Inhalt: {{ post.body }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!--Albums-Bereich-->
+    <mat-card>
+      <button mat-raised-button (click)="handleClick('albums')">
+        Album-Objekte laden
+      </button>
+    </mat-card>
+    <mat-grid-list *ngIf="albums.length > 0" cols="2" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let album of albums">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              User-Id: {{ album.userId }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              ID: {{ album.id }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              Titel: {{ album.title }}
+            </p>
 
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <!--Photos-Bereich-->
-  <mat-card>
-    <button mat-raised-button (click)="handleClick('photos')">
-      Photo-Objekte laden
-    </button>
-  </mat-card>
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let photo of photos">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            User-Id: {{ photo.albumId }}
-          </mat-card-title>
-          <mat-card-subtitle>
-            ID: {{ photo.id }}
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            Titel: {{ photo.title }}
-          </p>
-          <p>
-            URL: {{ photo.url }}
-          </p>
-          <!-- <img mat-card-image [src]="photo.thumbnailUrl" [alt]="photo.title"/> -->
-          <a [href]="photo.thumbnailUrl" target="_blank">Quellbild</a>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <!--Todos-Bereich-->
-  <mat-card>
-    <button mat-raised-button (click)="handleClick('todos')">
-      Todo-Objekte laden
-    </button>
-  </mat-card>
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let todo of todos">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            User-Id: {{ todo.userId }}
-          </mat-card-title>
-          <mat-card-subtitle>
-            ID: {{ todo.id }}
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            Titel: {{ todo.title }}
-          </p>
-          <p>
-            Abgeschlossen: {{ todo.completed }}
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <!--Todos-Bereich-->
-  <mat-card>
-    <button mat-raised-button (click)="handleClick('comments')">
-      Comment-Objekte laden
-    </button>
-  </mat-card>
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let comment of comments">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            Post-Id: {{ comment.postId }}
-          </mat-card-title>
-          <mat-card-subtitle>
-            ID: {{ comment.id }}
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            Email: {{ comment.email }}
-          </p>
-          <p>
-            Inhalt: {{ comment.body }}
-          </p>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!--Photos-Bereich-->
+    <mat-card>
+      <button mat-raised-button (click)="handleClick('photos')">
+        Photo-Objekte laden
+      </button>
+    </mat-card>
+    <mat-grid-list *ngIf="photos.length > 0" cols="2" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let photo of photos">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              User-Id: {{ photo.albumId }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              ID: {{ photo.id }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              Titel: {{ photo.title }}
+            </p>
+            <p>
+              URL: {{ photo.url }}
+            </p>
+            <!-- <img mat-card-image [src]="photo.thumbnailUrl" [alt]="photo.title"/> -->
+            <a [href]="photo.thumbnailUrl" target="_blank">Quellbild</a>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!--Todos-Bereich-->
+    <mat-card>
+      <button mat-raised-button (click)="handleClick('todos')">
+        Todo-Objekte laden
+      </button>
+    </mat-card>
+    <mat-grid-list *ngIf="todos.length > 0" cols="2" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let todo of todos">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              User-Id: {{ todo.userId }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              ID: {{ todo.id }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              Titel: {{ todo.title }}
+            </p>
+            <p>
+              Abgeschlossen: {{ todo.completed }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!--Comments-Bereich-->
+    <mat-card>
+      <button mat-raised-button (click)="handleClick('comments')">
+        Comment-Objekte laden
+      </button>
+    </mat-card>
+    <mat-grid-list *ngIf="comments.length > 0" cols="2" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let comment of comments">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              Post-Id: {{ comment.postId }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              ID: {{ comment.id }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              Email: {{ comment.email }}
+            </p>
+            <p>
+              Inhalt: {{ comment.body }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>
 
 <router-outlet>

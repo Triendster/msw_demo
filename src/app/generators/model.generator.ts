@@ -75,12 +75,13 @@ export class ModelGenerator {
             if (!!seed) {
                 faker.seed(seed + i);
             }
+            console.log(faker.internet.url())
             const photo: IPhotoModel = {
                 albumId: faker.number.int(),
                 id: faker.number.int(),
                 title: faker.lorem.sentence(),
                 url: faker.internet.url(),
-                thumbnailUrl: '/assets/kitten.jpg',
+                thumbnailUrl: `/assets/kittens/${faker.number.int({min: 0, max: 10}).toString()}.jpg`,
             }
             photos.push(photo);
         }

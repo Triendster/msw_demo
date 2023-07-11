@@ -5,3 +5,16 @@
     justify-content: center;
     padding: 3vw;
 }
+
+.delete-btn {
+    position: fixed;
+    z-index: 9999;
+    left: 25%;
+    right: 50%;
+    top: 2%;
+    width: 50%;
+}
+
+.list-container {
+    padding-top: 50px;
+}
