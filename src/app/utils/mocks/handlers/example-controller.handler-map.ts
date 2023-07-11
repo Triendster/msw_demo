@@ -8,7 +8,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
     ['users']: {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/users`,
-        handler: async (req, res, ctx) => {
+        handler: async (_, res, ctx) => {
             const responseData = ModelGenerator.generateUsers(123);
 
             return res(
@@ -21,7 +21,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
     ['posts']: {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/posts`,
-        handler: async (req, res, ctx) => {
+        handler: async (_, res, ctx) => {
             const responseData = ModelGenerator.generatePosts(123);
 
             return res(
@@ -34,7 +34,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
     ['albums']: {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/albums`,
-        handler: async (req, res, ctx) => {
+        handler: async (_, res, ctx) => {
             const responseData = ModelGenerator.generateAlbums(123);
 
             return res(
@@ -47,7 +47,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
     ['photos']: {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/photos`,
-        handler: async (req, res, ctx) => {
+        handler: async (_, res, ctx) => {
             const responseData = ModelGenerator.generatePhotos(123);
 
             return res(
@@ -60,7 +60,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
     ['todos']: {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/todos`,
-        handler: async (req, res, ctx) => {
+        handler: async (_, res, ctx) => {
             const responseData = ModelGenerator.generateTodos(123);
 
             return res(
@@ -73,7 +73,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
     ['comments']: {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/comments`,
-        handler: async (req, res, ctx) => {
+        handler: async (_, res, ctx) => {
             const responseData = ModelGenerator.generateComments(123);
 
             return res(
