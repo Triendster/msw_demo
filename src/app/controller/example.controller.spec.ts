@@ -30,27 +30,27 @@ describe('ExampleController', () => {
 
         it('mock_should fetch all posts', async () => {
             const mockPosts = await exampleController.getAllPosts();
-            expect(mockPosts).toEqual(ModelGenerator.generatePosts(123));
+            expect(mockPosts).toEqual(ModelGenerator.generatePosts(123, 100));
         });
 
         it('mock_should fetch all albums', async () => {
             const mockAlbums = await exampleController.getAllAlbums();
-            expect(mockAlbums).toEqual(ModelGenerator.generateAlbums(123));
+            expect(mockAlbums).toEqual(ModelGenerator.generateAlbums(123, 100));
         });
 
         it('mock_should fetch all photos', async () => {
             const mockPhotos = await exampleController.getAllPhotos();
-            expect(mockPhotos).toEqual(ModelGenerator.generatePhotos(123));
+            expect(mockPhotos).toEqual(ModelGenerator.generatePhotos(123, 5000));
         });
 
         it('mock_should fetch all todos', async () => {
             const mockTodos = await exampleController.getAllTodos();
-            expect(mockTodos).toEqual(ModelGenerator.generateTodos(123));
+            expect(mockTodos).toEqual(ModelGenerator.generateTodos(123, 200));
         });
 
         it('mock_should fetch all comments', async () => {
             const mockComments = await exampleController.getAllComments();
-            expect(mockComments).toEqual(ModelGenerator.generateComments(123));
+            expect(mockComments).toEqual(ModelGenerator.generateComments(123, 500));
         });
     });
 

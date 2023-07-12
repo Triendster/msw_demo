@@ -22,7 +22,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/posts`,
         handler: async (_, res, ctx) => {
-            const responseData = ModelGenerator.generatePosts(123);
+            const responseData = ModelGenerator.generatePosts(123, 100);
 
             return res(
                 ctx.status(200),
@@ -35,7 +35,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/albums`,
         handler: async (_, res, ctx) => {
-            const responseData = ModelGenerator.generateAlbums(123);
+            const responseData = ModelGenerator.generateAlbums(123, 100);
 
             return res(
                 ctx.status(200),
@@ -48,7 +48,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/photos`,
         handler: async (_, res, ctx) => {
-            const responseData = ModelGenerator.generatePhotos(123);
+            const responseData = ModelGenerator.generatePhotos(123, 5000);
 
             return res(
                 ctx.status(200),
@@ -61,7 +61,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/todos`,
         handler: async (_, res, ctx) => {
-            const responseData = ModelGenerator.generateTodos(123);
+            const responseData = ModelGenerator.generateTodos(123, 200);
 
             return res(
                 ctx.status(200),
@@ -74,7 +74,7 @@ export const EXAMPLE_CONTROLLER_HANDLER_MAP: IHandlerMapController = {
         method: RESTMethods.GET,
         url: `${GlobalSettings.apiUrl}/comments`,
         handler: async (_, res, ctx) => {
-            const responseData = ModelGenerator.generateComments(123);
+            const responseData = ModelGenerator.generateComments(123, 500);
 
             return res(
                 ctx.status(200),
